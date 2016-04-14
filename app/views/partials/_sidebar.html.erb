@@ -1,0 +1,23 @@
+<% if params[:controller] == 'about' %>
+
+
+<div class="well">
+	<h3>Contact with Programmer</h3>
+	<ul>
+		<li>The BookStore </li>
+		<li>444 Behshti,tehran </li>
+		<li>Iran</li>
+		<li>Phone: (+98) 935 536 5345 </li>
+		<li>Email : rooham.inet@gmail.com </li>
+	</ul>
+</div>
+<% end %>
+
+<% if params[:controller] ==  'books' && params[:action] == 'index' || params[:action] == 'show' %>
+<div class="list-group">
+  <a href="#" class="list-group-item">PHP</a>
+  <a href="#" class="list-group-item">Android</a>
+  <a href="#" class="list-group-item">Ruby On Rails</a>
+  <a href="#" class="list-group-item">Python</a>
+</div>
+<% end %>
