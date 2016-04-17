@@ -6,6 +6,9 @@ gem 'rails', '4.2.4'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
+group :assets do
+  gem 'jquery-ui-rails', :git => 'https://github.com/joliss/jquery-ui-rails'
+end
 group :production do
   gem 'thin'
   gem 'pg'
