@@ -1,26 +1,24 @@
 <div id="books-show">
-  <h2>Learn php 5</h2>
+  <h2><%= @book.title %></h2>
 
   <div class="books-show-left">
-    <%= image_tag('covers/php-mysql.jpg') %>
+    <%= image_tag(@book.coverpath) %>
   </div>
 
   <div class="books-show-right">
     <h3>Book info: </h3>
     <ul>
-      <li><strong>Category: </strong>PHP</li>
-      <li><strong>Author: </strong> Rooham</li>
-      <li><strong>Publisher: </strong> Corese Tech</li>
-      <li><strong>Year: </strong> 2016</li>
-      <li><strong>ISBN: </strong> 1473837562</li>
-      <li><strong>Format: </strong> Paperback</li>
-      <li><strong>Pages: </strong> 687</li>
+      <li><strong>Category: </strong><%= @book.category.name %></li>
+      <li><strong>Author: </strong> <%= @book.author.first_name %> <%= @book.author.last_name %></li>
+      <li><strong>Publisher: </strong><%= @book.publisher.name %></li>
+      <li><strong>Year: </strong><%= @book.year %></li>
+      <li><strong>ISBN: </strong> <%= @book.isbn %></li>
+      <li><strong>Format: </strong><%= @book.format %></li>
+      <li><strong>Pages: </strong> <%= @book.pages %></li>
     </ul>
 
 
-    <%= link_to " Buy For  $5,47", 'http://www.ebay.com/itm/PHP-
-    MySQL-Novice-to-Ninja-
-    Yank-Kevin-/231904128197?hash=item35fe902cc5:g:aPwAAOSw7hRWQyyD',class:'btn btn-success', target:'_blank' %>
+    <%= link_to " Buy For $"+ @book.price  , @book.buy ,class:'btn btn-success', target:'_blank' %>
   </div>
 
   <div class="clearfix"></div>
@@ -28,20 +26,14 @@
  <h4>Detailed item info
  Synopsis</h4>
  <p>
-
-Build Your Own Database Driven Web Site Using PHP & MySQL is a practical hands-on guide to learning all the
-tools, principles and techniques needed to build a fully-functional database-driven web site using PHP & MySQL.
-This book covers everything from installing PHP & MySQL under Windows, Linux, and Mac through to building a live
-web-based content management system. While this is essentially a beginner's book, it also covers more advanced
-topics such as the storage of binary data in MySQL, and cookies and sessions in PHP. It comes complete with a
-set of handy reference guides for PHP
- & MySQL that include: MySQL syntax MySQL functions MysQL column types PHP functions for working with MySQL
-
-PHP & MySQL: Novice to Ninja is a practical hands-on guide to learning all the tools, principles and techniques
- needed to build a fully-functional database-driven web site using PHP & MySQL. This book covers everything from
- installing PHP & MySQL under Windows, Linux, and Mac through to building a live web-based content management
- system.While this is essentially a beginner's book, it also covers more advanced topics such as the storage of
- binary data in MySQL, and cookies and sessions in PHP. It comes complete with a set of handy reference guides
-  for PHP & MySQL that include: MySQL syntaxMySQL functionsMysQL column typesPHP functions for working with MySQL
+   <%= @book.excerpt %>
  </p>
+
+
+ <h3>Admin Functions</h3>
+  <%= link_to 'Edit', edit_book_path(@book.id) %> | <%= link_to 'Delete', book_path(@book),
+  method: :delete, data: {confirm: 'Are you sure'} %>
+
+  <p/>
+
 </div>
